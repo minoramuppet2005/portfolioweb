@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Miranda Muller | Social Media &amp; Technology</title>
+<meta name="description" content="Miranda Muller: social media director, UX designer and IT student at Florida State University.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Pinyon+Script&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sage:#b9d4b4; --sage-deep:#8fb58a; --ink:#1d1d1b; --paper:#f4f8f0;
+  --blush:#f2a7c6; --violet:#6d4fd1;
+  --display:'Outfit','Segoe UI',Arial,sans-serif; --script:'Pinyon Script','Snell Roundhand',cursive; --body:'DM Sans',Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--sage);color:var(--ink);line-height:1.75;font-size:1.05rem;letter-spacing:.01em}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--violet);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+.wrap{max-width:1080px;margin:0 auto;padding:0 1.5rem}
+h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.2;letter-spacing:.02em}
+h2{font-size:clamp(1.8rem,4.5vw,2.8rem);margin-bottom:1.25rem}
+.script{font-family:var(--script);font-weight:400;letter-spacing:0}
+p+p{margin-top:1rem}
+
+/* nav */
+nav{position:sticky;top:0;z-index:10;background:var(--ink);padding:.7rem 1rem}
+nav ul{list-style:none;padding:0;display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap}
+nav a{color:var(--sage);text-decoration:none;font-weight:500;font-size:.95rem}
+nav a:hover{color:var(--blush)}
+
+/* hero */
+.hero{padding:5rem 0 4rem;text-align:center}
+.hero h1{font-size:clamp(2.8rem,11vw,7.5rem);line-height:1.1;letter-spacing:.04em;position:relative;display:inline-block}
+.hero h1 .script{position:absolute;left:-.12em;top:.08em;font-size:1.25em;color:var(--paper);mix-blend-mode:normal;text-shadow:0 0 0 var(--ink);pointer-events:none}
+.hero .tag{font-family:var(--display);font-weight:600;font-size:clamp(1rem,2.6vw,1.4rem);margin-top:1.5rem;letter-spacing:.12em}
+.hero .tag .script{font-size:2rem;padding:0 .25rem}
+.btn{display:inline-block;margin-top:2rem;background:var(--ink);color:var(--paper);padding:.75rem 2rem;border-radius:999px;text-decoration:none;font-weight:700}
+.btn:hover{background:var(--violet)}
+
+/* dark band */
+.dark{background:var(--ink);color:var(--paper);padding:4.5rem 0}
+.dark h2 em{font-family:var(--script);font-style:normal;font-weight:400;color:var(--blush);font-size:1.3em}
+.split{display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;align-items:center}
+.photo{aspect-ratio:4/5;border-radius:4px;transform:rotate(1.5deg);position:relative;overflow:hidden}
+.photo::before{content:"";position:absolute;top:-.8rem;left:50%;width:7rem;height:1.6rem;background:var(--blush);opacity:.8;transform:translateX(-50%) rotate(-3deg);z-index:2}
+
+/* image slots: a labelled box until you drop the real file in /images */
+.ph{position:relative;background:var(--sage-deep);display:flex;align-items:center;justify-content:center;text-align:center;padding:1rem;font-size:.85rem;color:var(--ink);overflow:hidden}
+.ph::after{content:attr(data-label)}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+.dark .ph{background:#3a3d39;color:var(--sage)}
+
+/* stats */
+.stats{padding:4.5rem 0}
+.stats-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:3rem;align-items:center}
+.pill{display:inline-block;background:var(--paper);padding:.55rem 1.5rem;border-radius:4px;font-family:var(--display);font-weight:600;letter-spacing:.06em;margin-bottom:2rem}
+.stat{text-align:center;margin-bottom:1.5rem}
+.stat b{display:block;font-family:var(--display);font-weight:700;font-size:clamp(1.9rem,4.5vw,2.8rem);line-height:1.25;letter-spacing:.03em}
+.stat span{font-size:.9rem;font-weight:500}
+
+/* galleries */
+.gallery{display:grid;gap:1rem}
+.g4{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+.g6{grid-template-columns:repeat(3,1fr)}
+@media (max-width:560px){.g6{grid-template-columns:repeat(2,1fr)}}
+.poster{aspect-ratio:4/5;border-radius:6px}
+.record{display:grid;grid-template-columns:minmax(200px,300px) 1fr;gap:2.5rem;align-items:center;margin-bottom:3rem}
+.phone{aspect-ratio:9/19;border:8px solid #555;border-radius:28px;max-width:240px;width:100%;margin:0 auto}
+.caption{font-size:.9rem;margin-top:1rem;opacity:.85}
+
+/* design samples */
+.design{padding:4.5rem 0}
+.circle{aspect-ratio:1;border-radius:50%;border:6px solid var(--paper)}
+.badge-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem;margin-top:1.5rem}
+
+/* involvement */
+.involve{background:var(--paper);padding:4.5rem 0}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.involve h3{font-size:1.6rem;margin-bottom:.5rem}
+.roles{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));align-items:start;gap:1.25rem;margin-top:3rem}
+.role{background:var(--sage);padding:1.4rem 1.5rem;border-radius:6px}
+.involve .role h3{font-size:1.15rem;margin-bottom:.3rem}
+.involve .uxc h3{color:var(--violet)}
+.involve .gallery{grid-template-columns:repeat(auto-fit,minmax(200px,260px));margin-top:1rem}
+
+/* resume */
+.resume{padding:4.5rem 0}
+.job{border-left:4px solid var(--ink);padding-left:1.25rem;margin-bottom:2rem}
+.job h3{font-size:1.2rem}
+.job .meta{font-size:.9rem;font-weight:500;opacity:.8}
+.job ul{margin:.6rem 0 0 1.1rem}
+.job li+li{margin-top:.35rem}
+
+/* tools */
+.certs{padding:4.5rem 0;background:var(--paper)}
+.cert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem}
+.cert{background:var(--sage);padding:1.4rem 1.5rem;border-radius:6px}
+.cert h3{font-size:1.1rem;margin-bottom:.4rem}
+.cert .meta{font-size:.9rem;font-weight:500}
+.cert .skills{font-size:.85rem;margin-top:.3rem;opacity:.85}
+.cert a{display:inline-block;margin-top:.8rem;font-weight:700;font-size:.9rem}
+.tools{padding:4.5rem 0;background:var(--sage-deep)}
+.chips{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:2rem}
+.chips span{background:var(--paper);padding:.4rem 1rem;border-radius:999px;font-weight:500;font-size:.95rem}
+.tools .cols h3{font-size:1.2rem;margin-bottom:.8rem}
+
+footer{background:var(--ink);color:var(--sage);text-align:center;padding:3rem 1rem}
+footer a{color:var(--blush)}
+
+@media (max-width:760px){
+  .split,.stats-grid,.cols,.record{grid-template-columns:1fr}
+  .record .poster{max-width:300px}
+  .photo{max-width:320px;margin:0 auto}
+}
+</style>
+</head>
+<body>
+
+<nav aria-label="Main">
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#impact">Impact</a></li>
+    <li><a href="#resume">Resume</a></li>
+    <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <h1><span class="script" aria-hidden="true">M</span>MIRANDA<br>MULLER</h1>
+    <p class="tag">SOCIAL MEDIA <span class="script">&amp;</span> TECHNOLOGY</p>
+    <a class="btn" href="#about">Learn more</a>
+  </div>
+</header>
+
+<section class="dark" id="about">
+  <div class="wrap split">
+    <div>
+      <h2>Hi! My name is <em>Miranda</em></h2>
+      <p>I'm a graduate student at Florida State University studying Information Technology with a focus on user-centered design, and a passion for creativity, visual communication, and human-centered design.</p>
+      <p>I've always been drawn to the space where creativity and technology meet. I love exploring how thoughtful design can make information more engaging, approachable, and meaningful. Whether that means experimenting with a new visual style or thinking through how people interact with something, I enjoy finding creative ways to communicate an idea.</p>
+      <p>Outside of school, I enjoy learning new things, getting involved in my community, and finding new outlets for creativity. I'm someone who is always creating and learning!</p>
+    </div>
+    <div class="photo ph" data-label="Headshot"><img src="images/headshot.jpg" alt="Miranda Muller in a black blazer standing in front of a tree draped in Spanish moss" style="object-position:center 30%" onerror="this.remove()"></div>
+  </div>
+</section>
+
+<section class="dark" id="impact" style="padding-top:0">
+  <div class="wrap">
+    <h2>My work has <em>impact</em></h2>
+    <div class="split">
+      <div>
+        <p>For the past two years, I have served as the Social Media Director for the Askew Student Life Center (ASLC) FSU, where I shape the digital voice behind a space that brings students together through film, gaming, and themed events.</p>
+        <p>My marketing has helped drive attendance for several sold-out events in the ASLC&rsquo;s 380-seat theater. My work ranges from large-scale campaigns like an advanced screening of <i>Wicked: For Good</i> (2025), where I worked closely with NBC Universal professionals, to collaborations with organizations across the university. No matter the size of the event, I believe every event deserves a voice&mdash;and I&rsquo;ve made it a priority to give each one a meaningful presence on the platform I run.</p>
+        <p>Through visual design, strategic promotion, real-time coverage, and consistent storytelling, I manage a fast-moving content calendar of 10&ndash;20 posts each week and have grown the ASLC&rsquo;s Instagram community from 10K to 15K+ followers.</p>
+        <p>My time at the ASLC has given me the opportunity to combine what I love most about social media: designing with purpose, building community, and turning an event into something people are excited to be part of.</p>
+      </div>
+      <div class="gallery">
+        <div class="ph poster" data-label="Event coverage photo"><img src="images/impact-1.jpg" alt="Filming event coverage at the ASLC" onerror="this.remove()"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="stats" aria-labelledby="growth">
+  <div class="wrap stats-grid">
+    <div>
+      <span class="pill" id="growth">Growing ASLC's digital presence</span>
+      <p>When I took over ASLC's social media in 2025, our Instagram had around 10K followers. Since then, I've grown the account to over 15K while developing a stronger visual identity and creating content designed to connect students with our events, films, and programs.</p>
+      <p>What I'm most proud of isn't just the growth. It's learning what makes our audience stop, engage, and come back. From original graphics to short-form video and trend-based content, I've experimented creatively while seeing that work translate into measurable results.</p>
+    </div>
+    <div>
+      <div class="stat"><b>10K &rarr; 15K</b><span>Followers, 50% growth</span></div>
+      <div class="stat"><b>1.09M+</b><span>Account views since July 2026</span></div>
+      <div class="stat"><b>32.9K+</b><span>Interactions</span></div>
+      <div class="stat"><b>40K</b><span>Views on top graphic</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="dark" aria-labelledby="top">
+  <div class="wrap">
+    <h2 id="top">Top performing posts</h2>
+    <div class="record">
+      <!-- Drop the post image at images/record-high.jpg -->
+      <div class="ph poster" data-label="Roman Holiday edit"><img src="images/record-high.jpg" alt="Roman Holiday edit, the ASLC account's record-high post" onerror="this.remove()"></div>
+      <div>
+        <h3 class="script" style="font-size:2.6rem;color:var(--blush);font-weight:400;letter-spacing:0">Account record high!</h3>
+        <div class="stat" style="text-align:left;margin:1rem 0 0"><b>2,322</b><span>Likes on our Roman Holiday edit</span></div>
+      </div>
+    </div>
+    <div class="gallery g6">
+      <div class="ph poster" data-label="Hamilton"><img src="images/post-1.jpg" alt="Hamilton screening graphic" onerror="this.remove()"></div>
+      <div class="ph poster" data-label="Mamma Mia!"><img src="images/post-2.jpg" alt="Mamma Mia! screening graphic" onerror="this.remove()"></div>
+      <div class="ph poster" data-label="How to Lose a Guy in 10 Days"><img src="images/post-3.jpg" alt="How to Lose a Guy in 10 Days graphic" onerror="this.remove()"></div>
+      <div class="ph poster" data-label="Wicked: For Good"><img src="images/post-4.jpg" alt="Wicked: For Good advanced screening graphic" onerror="this.remove()"></div>
+      <div class="ph poster" data-label="Club Downunder"><img src="images/post-5.jpg" alt="Club Downunder graphic" onerror="this.remove()"></div>
+      <div class="ph poster" data-label="Top post 6"><img src="images/post-6.jpg" alt="Top performing post graphic" onerror="this.remove()"></div>
+    </div>
+    <p class="caption">These were special campaigns where I worked alongside large organizations, including HerCampus Media, Club Downunder, and NBC Universal, to promote the events.</p>
+  </div>
+</section>
+
+<section class="resume" id="resume">
+  <div class="wrap">
+    <h2>Experience</h2>
+    <div class="job">
+      <h3>Social Media Director, Askew Student Life Center</h3>
+      <p class="meta">May 2025 - Present</p>
+      <ul>
+        <li>Lead social media strategy and content operations across Instagram, Facebook, and YouTube, generating 5M+ organic views through data-informed content planning, audience engagement, and performance optimization.</li>
+        <li>Grew the @aslc_fsu Instagram community from 11,000 to 15,000+ followers (36%+ growth) by developing audience-focused campaigns, analyzing content performance, and continuously refining creative strategy.</li>
+        <li>Collaborate closely with advertising and video production teams to develop integrated multimedia campaigns, promotional initiatives, and video storytelling across digital platforms.</li>
+        <li>Manage the end-to-end content lifecycle&mdash;from ideation and content planning to production, scheduling, publishing, community engagement, and analytics&mdash;to maintain a consistent brand presence and strengthen student engagement.</li>
+        <li>Create and optimize multimedia content using Sprout Social, CapCut, Adobe Creative Suite, Canva, and platform-native analytics/publishing tools, adapting creative assets and messaging to platform and audience needs.</li>
+      </ul>
+    </div>
+    <div class="job">
+      <h3>Support Technician, Garnet Gaming Lounge</h3>
+      <p class="meta">FSU Student Union &middot; May 2026 - Present</p>
+      <ul>
+        <li>Deliver front-line technical support for gaming workstations, software, networking, and hardware used by students, faculty, staff, and community members.</li>
+        <li>Coordinate software updates, deployments, licensing, and ongoing maintenance across a catalog of 1,000+ software titles, supporting reliable and consistent workstation availability.</li>
+        <li>Troubleshoot technical issues and explain resolutions in clear, user-friendly language for customers with varied levels of technical experience.</li>
+      </ul>
+    </div>
+    <div class="job">
+      <h3>Co-President, The UX Collective @ FSU</h3>
+      <p class="meta">June 2025 - Present &middot; Previously Social Media &amp; Graphics Chair</p>
+      <ul>
+        <li>Lead a student organization focused on UX/UI design and user-centered design, coordinating workshops, events, and collaborative opportunities that help students build practical design skills and connect with the UX community.</li>
+        <li>Partner with fellow officers to shape programming, manage club initiatives, and create an inclusive environment for students interested in UX research, design, and technology.</li>
+      </ul>
+    </div>
+    <div class="job">
+      <h3>Principal Investigator, NASA NPWEE Program</h3>
+      <p class="meta">May 2026 - August 2026</p>
+      <ul>
+        <li>Led a multidisciplinary team as Principal Investigator (PI) through the development and delivery of a NASA-style technical proposal, coordinating technical, programmatic, schedule, budget, and review activities across the project lifecycle.</li>
+        <li>Directed team meetings, task delegation, milestone tracking, requirements compliance, technical integration, and proposal reviews, ensuring contributions from multiple engineering and scientific disciplines formed a cohesive final deliverable.</li>
+        <li>Applied systems engineering and project management principles to define objectives, assess technical feasibility and risk, establish performance metrics, manage resources, and maintain alignment with NASA mission needs.</li>
+        <li>Served as a Primary Reviewer on NASA-style professional review panels, independently evaluating technical merit, maturation potential, management approach, workforce development, and NASA alignment; developed numerical scores and formal written feedback and contributed to panel consensus.</li>
+      </ul>
+    </div>
+    <div class="job">
+      <h3>IT Helpdesk Technician, FSU College of Communication and Information</h3>
+      <p class="meta">June 2025 - January 2026</p>
+      <ul>
+        <li>Provided in-person and remote IT support to 2,500+ users across Windows and macOS environments, resolving hardware, software, account, and access issues.</li>
+        <li>Supported workstation setup, maintenance, user accounts, and permissions using Active Directory and remote-support tools, helping maintain dependable day-to-day technology operations.</li>
+        <li>Tracked and maintained inventory data for 500+ endpoints in Lansweeper, improving visibility for asset management, compliance, and technology planning.</li>
+      </ul>
+    </div>
+    <h2 style="margin-top:3rem">Education</h2>
+    <div class="job">
+      <h3>M.S. Information Technology, Florida State University</h3>
+      <p class="meta">Expected May 2028 &middot; Graduate Certificate in Project Management &middot; User Centered Design</p>
+    </div>
+    <div class="job">
+      <h3>B.S. Information Technology, Florida State University</h3>
+      <p class="meta">May 2026 &middot; GPA 3.9, Summa Cum Laude &middot; Minors in Hospitality and Innovation</p>
+    </div>
+    <!-- Put your PDF at resume.pdf next to this file -->
+    <a class="btn" href="resume.pdf">Download full resume</a>
+  </div>
+</section>
+
+<section class="certs" id="certifications" aria-labelledby="cert-h">
+  <div class="wrap">
+    <h2 id="cert-h">Licenses &amp; certifications</h2>
+    <div class="cert-grid">
+      <article class="cert">
+        <h3>Social Media Marketing Professional Certificate</h3>
+        <p class="meta">Hootsuite &middot; Issued Oct 2026</p>
+        <p class="skills">Skills: Content Marketing, Brand Storytelling</p>
+        <a href="https://www.linkedin.com/learning/certificates/1edbbfe4382d66b7b2e7627775214a09ad9207a0476f9aef7489576f4f87c456/" target="_blank" rel="noopener">View credential</a>
+      </article>
+      <article class="cert">
+        <h3>Scale Creative Campaigns</h3>
+        <p class="meta">Canva &middot; Issued Sep 2026</p>
+        <p class="skills">Credential ID 8ae487</p>
+        <a href="https://www.linkedin.com/in/mirandatmuller/overlay/Certifications/1936204405/treasury/?profileId=ACoAAD0cW0cBBIgv1tcq1a9ia2CCmeqINvXijvY" target="_blank" rel="noopener">View credential</a>
+      </article>
+      <article class="cert">
+        <h3>Graphic Design Essentials</h3>
+        <p class="meta">Canva &middot; Issued Sep 2026</p>
+        <p class="skills">Credential ID e7992f</p>
+        <a href="https://www.linkedin.com/in/mirandatmuller/overlay/Certifications/1933181871/treasury/?profileId=ACoAAD0cW0cBBIgv1tcq1a9ia2CCmeqINvXijvY" target="_blank" rel="noopener">View credential</a>
+      </article>
+      <article class="cert">
+        <h3>Canva Essentials</h3>
+        <p class="meta">Canva &middot; Issued Sep 2026</p>
+        <p class="skills">Credential ID 132074</p>
+        <a href="https://www.linkedin.com/in/mirandatmuller/overlay/Certifications/1932539916/treasury/?profileId=ACoAAD0cW0cBBIgv1tcq1a9ia2CCmeqINvXijvY" target="_blank" rel="noopener">View credential</a>
+      </article>
+      <article class="cert">
+        <h3>Social Media Marketing: Strategy and Optimization</h3>
+        <p class="meta">LinkedIn &middot; Issued Sep 2026</p>
+        <a href="https://www.linkedin.com/in/mirandatmuller/overlay/Certifications/31945866/treasury/?profileId=ACoAAD0cW0cBBIgv1tcq1a9ia2CCmeqINvXijvY" target="_blank" rel="noopener">View credential</a>
+      </article>
+      <article class="cert">
+        <h3>NASA Proposal Writing and Evaluation Experience (NPWEE) Certificate of Completion</h3>
+        <p class="meta">L'SPACE Program &middot; Issued Aug 2026</p>
+        <a href="https://www.linkedin.com/in/mirandatmuller/overlay/Certifications/1936298176/treasury/?profileId=ACoAAD0cW0cBBIgv1tcq1a9ia2CCmeqINvXijvY" target="_blank" rel="noopener">View credential</a>
+      </article>
+      <article class="cert">
+        <h3>Google IT Support Certificate</h3>
+        <p class="meta">Google &middot; Issued Apr 2023</p>
+        <p class="skills">Skills: IT Hardware Support, Customer Service</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="tools" aria-labelledby="tl">
+  <div class="wrap">
+    <h2 id="tl">Platforms &amp; tools</h2>
+    <div class="cols">
+      <div>
+        <h3>Platforms</h3>
+        <div class="chips"><span>Instagram</span><span>YouTube</span><span>Facebook</span><span>Bluesky</span><span>TikTok</span><span>LinkedIn</span></div>
+      </div>
+      <div>
+        <h3>Tools</h3>
+        <div class="chips"><span>Adobe Creative Cloud</span><span>Lightroom</span><span>Premiere Pro</span><span>Photoshop</span><span>CapCut</span><span>Canva</span><span>Google Analytics</span><span>Sprout Social</span><span>Figma</span><span>WordPress</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <p class="script" style="font-size:2.2rem;color:var(--paper)">Let's connect</p>
+  <p><a href="mailto:miranda.muller.business@gmail.com">miranda.muller.business@gmail.com</a> &middot; <a href="https://www.linkedin.com/in/mirandatmuller">LinkedIn</a></p>
+  <p style="font-size:.85rem;margin-top:1rem;opacity:.7">&copy; 2026 Miranda Muller</p>
+</footer>
+
+</body>
+</html>
